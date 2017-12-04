@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a945892_26ab11ce",
+        "filename": "LICENSE.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-04T01:10:13Z",
+      "side": 1,
+      "message": "Please use the correct version of the license, this is missing the Copyright statement",
+      "revId": "eec65a17964189600e7e850ad6152ff38a069be2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bddfa695_07400acb",
+        "filename": "ROOT/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-04T01:10:13Z",
+      "side": 1,
+      "message": "Please remove \"cognita\"",
+      "revId": "eec65a17964189600e7e850ad6152ff38a069be2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ea0f16_64c599c2",
+        "filename": "ROOT/app_model5.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-04T01:10:13Z",
+      "side": 1,
+      "message": "Can configuration values be moved out of source code to an external file?",
+      "revId": "eec65a17964189600e7e850ad6152ff38a069be2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a98339d4_ada30136",
+        "filename": "ROOT/keyword_search.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-04T01:10:13Z",
+      "side": 1,
+      "message": "Why is this sample text in here?  Is this a test?",
+      "revId": "eec65a17964189600e7e850ad6152ff38a069be2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb8f5cb8_80a22f85",
+        "filename": "ROOT/license_compliance.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-04T01:10:13Z",
+      "side": 1,
+      "message": "Please confirm the license on this file is compatible with what we are doing, that we can redistribute it, etc.",
+      "revId": "eec65a17964189600e7e850ad6152ff38a069be2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "152155d8_5cb2dfae",
+        "filename": "setup.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-04T01:10:13Z",
+      "side": 1,
+      "message": "Please do not commit individual author names",
+      "revId": "eec65a17964189600e7e850ad6152ff38a069be2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d724b70_13d69561",
+        "filename": "templates/index.html",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-04T01:10:13Z",
+      "side": 1,
+      "message": "Please rename to Acumos",
+      "revId": "eec65a17964189600e7e850ad6152ff38a069be2",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
