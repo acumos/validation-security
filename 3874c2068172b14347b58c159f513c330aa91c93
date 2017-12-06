@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de7b40a9_5ab4b6bf",
+        "filename": "templates/index.html",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-06T20:19:19Z",
+      "side": 1,
+      "message": "Please change Cognita to Acumos",
+      "revId": "3874c2068172b14347b58c159f513c330aa91c93",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
