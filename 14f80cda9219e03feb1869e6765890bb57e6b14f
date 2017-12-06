@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea053f35_824a89e0",
+        "filename": "templates/index.html",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2017-12-06T20:30:45Z",
+      "side": 1,
+      "message": "Please search and replace for ALL occurrences of Cognita.",
+      "revId": "14f80cda9219e03feb1869e6765890bb57e6b14f",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
