@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29df4699_f1c9e461",
+        "filename": "celery/app_model5.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2018-01-25T20:56:16Z",
+      "side": 1,
+      "message": "Can we please remove the hard coded solutionIds?",
+      "range": {
+        "startLine": 65,
+        "startChar": 68,
+        "endLine": 65,
+        "endChar": 92
+      },
+      "revId": "8b0ced5ea9db68b1585f25515ff3188b2db9fd5a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2dc6c30_2849eaca",
+        "filename": "celery/keyword_search.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2018-01-25T20:56:16Z",
+      "side": 1,
+      "message": "For now, I will ignore this and will merge code after addressing remaining comments. However, please make these values to be configurable (most likely using DB and Portal UI I believe).",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 26
+      },
+      "revId": "8b0ced5ea9db68b1585f25515ff3188b2db9fd5a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2f4f167_86117a2b",
+        "filename": "celery/license_compliance.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2018-01-25T20:56:16Z",
+      "side": 1,
+      "message": "Similar comments to make these configurable.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 50
+      },
+      "revId": "8b0ced5ea9db68b1585f25515ff3188b2db9fd5a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
