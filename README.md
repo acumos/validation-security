@@ -3,7 +3,7 @@
 [![Build Status](http://cognita-dev1-jenkins.eastus.cloudapp.azure.com:8080/job/acumos-python-client/badge/icon)](http://cognita-dev1-jenkins.eastus.cloudapp.azure.com:8080/job/acumos-python-client/)
 
 
-   Validation& Security microservice is about a "Run time" Scaning utility that will be applied on the models for sanity check!
+Validation& Security microservice is about a "Run time" Scaning utility that will be applied on the models for sanity check!
   
 	
 	

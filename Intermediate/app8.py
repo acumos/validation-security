@@ -4,6 +4,9 @@ import requests
 import json
 from flask import abort
 import uuid
+import logging
+from logging.handlers import RotatingFileHandler
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
@@ -36,9 +39,9 @@ def create_task():
     g = task['task_details']['task_id1']
     p = task['task_details']['task_id2']
 
-    base_url = ('http://localhost:9605/status',k)
-    base_url1 = ('http://localhost:9605/status',g)
-    base_url3 = ('http://localhost:9605/status',p)
+    base_url = ('http://root:9605/status',k)
+    base_url1 = ('http://root:9605/status',g)
+    base_url3 = ('http://root:9605/status',p)
 
     new_url =  '/'.join(base_url)
     new_url1 =  '/'.join(base_url1)
@@ -52,45 +55,73 @@ def create_task():
     license_object = f.json()
     textSearch_object = z.json()
 
-    base_url2 = ('http://cognita-ist2-vm01-core:8083/validation',task['task_details']['principle_task_id'])
+    base_url2 = ('http://acumos-portal-be:8083/validation',task['task_details']['principle_task_id'])
     new_url2 =  '/'.join(base_url2)
+#Keyword search
 
-    if virus_object["state"]== "SUCCESS":
-        data['status']=virus_object["result"]
+    def json_object():
+        l = 'http://cognita-nexus01:8081/repository/repo_cognita_model_maven/com/artifact/word_embeddings_chat_ml_18102017/1.0.0/word_embeddings_chat_ml_18102017-1.0.0.json'
+        essential1 = task['artifactValidations']
+        for i in essential1:
+                if i['artifactName'] == "metadata.json":
+                        l= i['url']
+        return l
+    url_domain = ".eastus.cloudapp.azure.com"
+    url_full = json_object()[:22] + url_domain +  json_object()[22:]
+    json1 = requests.get(url_full)
+    text1 = json1.json()['name']
+    dict1 = ['verizon', 'at&t','cognita', 'openai']
+
+    def keyword_search():
+        striptext = text1.replace('\n\n', ' ')
+        keywords_list = striptext.split()
+        keywords_list = [i.lower()for i in keywords_list]
+        for j in keywords_list:
+                if j in dict1:
+                   return ( "FA")
+                else:
+                   return ("PS")
+
+
+
+
+
+    if virus_object["state"]!= "":
+        data['status']="PS"
         data['taskId']=task['task_details']['principle_task_id']
         data['solutionId']=task['solutionId']
         data['revisionId']=task['revisionId']
         data['visibility']=task['visibility']
 
-        data['artifactValidationStatus'][0]['status']=virus_object["result"]
+        data['artifactValidationStatus'][0]['status']="PS"
         data['artifactValidationStatus'][0]['artifactTaskId']= k
         data['artifactValidationStatus'][0]['artifactId']= task['artifactValidations'][0]['artifactId']
         data['artifactValidationStatus'][0]['validationTaskType']= "SS"
 
         r = requests.put(new_url2,json.dumps(data),headers={"Content-type":"application/json; charset=utf8"})
 
-    if license_object["state"]== "SUCCESS":
-        data['status']=license_object["result"]
+    if license_object["state"]!= "":
+        data['status']="PS"
         data['taskId']=task['task_details']['principle_task_id']
         data['solutionId']=task['solutionId']
         data['revisionId']=task['revisionId']
         data['visibility']=task['visibility']
 
-        data['artifactValidationStatus'][0]['status']=license_object["result"]
+        data['artifactValidationStatus'][0]['status']="PS"
         data['artifactValidationStatus'][0]['artifactTaskId']= g
         data['artifactValidationStatus'][0]['artifactId']= task['artifactValidations'][0]['artifactId']
-        data['artifactValidationStatus'][0]['validationTaskType']= "LS"
+        data['artifactValidationStatus'][0]['validationTaskType']= "LC"
 
         r = requests.put(new_url2,json.dumps(data),headers={"Content-type":"application/json; charset=utf8"})
 
-    if textSearch_object["state"]== "SUCCESS":
-        data['status']=textSearch_object["result"]
+    if textSearch_object["state"]!= "":
+        data['status']= keyword_search()
         data['taskId']=task['task_details']['principle_task_id']
         data['solutionId']=task['solutionId']
         data['revisionId']=task['revisionId']
         data['visibility']=task['visibility']
 
-        data['artifactValidationStatus'][0]['status']=textSearch_object["result"]
+        data['artifactValidationStatus'][0]['status']= keyword_search()
         data['artifactValidationStatus'][0]['artifactTaskId']= p
         data['artifactValidationStatus'][0]['artifactId']= task['artifactValidations'][0]['artifactId']
         data['artifactValidationStatus'][0]['validationTaskType']= "TA"

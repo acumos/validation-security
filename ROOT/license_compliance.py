@@ -3,7 +3,7 @@
 
 
 """
-The following program is a Ninka is a lightweight license identification tool for source code. It is sentence-based, and provides a simple way to identify open source licenses in a source code file. It is capable of identifying several dozen different licenses (and their variations).
+The following program is created based on Ninka, a language parser that is used in FOSSOLOGY. It provides a simple way to identify open source licenses in a source codefile. It is capable of identifying several dozen different licenses (and their variations).
 """
 
 
@@ -12,6 +12,9 @@ import sys
 import re
 from collections import Counter
 
+# =============================================================================
+#     This is a "spelling corrector" -- a work in progress activity
+# =============================================================================
 
 def words(text): return re.findall(r'\w+', text.lower())
 
@@ -47,6 +50,44 @@ def known(words):
     "The subset of `words` that appear in the dictionary of WORDS."
     return set(w for w in words if w in WORDS)
 
+#
+# =============================================================================
+#     This is the NLP parser - work in progress
+
+# =============================================================================
+
+def extract_features(word_list):
+    return dict([(word, True) for word in word_list])
+# Class to preprocess text
+class Preprocessor(object):
+    # Initialize various operators
+    def __init__(self):
+        # Create a regular expression tokenizer
+        self.tokenizer = RegexpTokenizer(r'\w+')
+
+        # get the list of stop words
+        self.stop_words_english = stopwords.words('english')
+
+        # Create a Snowball stemmer
+        self.stemmer = SnowballStemmer('english')
+
+    # Tokenizing, stop word removal, and stemming
+    def process(self, input_text):
+        # Tokenize the string
+        tokens = self.tokenizer.tokenize(input_text.lower())
+
+        # Remove the stop words
+        tokens_stopwords = [x for x in tokens if not x in self.stop_words_english]
+
+        # Perform stemming on the tokens
+        #tokens_stemmed = [self.stemmer.stem(x) for x in tokens_stopwords]
+
+        return tokens_stopwords
+
+
+
+
+
 More_permission = ["PSFL","MIT","MIT (X11)", "New BSD", "ISC", "Apache" ]
 
 Less_permissive = ["LGPL","GPL", "GPLv2", "GPLv3"]
@@ -75,9 +116,10 @@ Dict1 = {
     "postgresqlRef" : "postgresql"
     }
 
-text = " MIT license is embedded in thisprogram"
-
-list1 = text.split()
+Dict2 = {
+"MIT" : ['numpy','pandas']
+"BSD" : ['scikit', 'gensim']
+}
 
 def License_compliance1():
     for i in list1:
