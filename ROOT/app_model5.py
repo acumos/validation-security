@@ -10,20 +10,7 @@ from celery import Celery
 from flasgger import Swagger
 import requests
 import uuid
-tasks = [
-    {
-        'solutionId': 1,
-        'revisionId': '2',
-        'artifacts': "",
-        'requestToPublish': 'Organization'
-    },
-    {
-        'solutionId': 42,
-        'revisionId': '3',
-        'artifacts': "",
-        'requestToPublish': 'Public'
-    }
-]
+
 
 app = Flask(__name__)
 swagger = Swagger(app)
@@ -62,11 +49,11 @@ def long_task(self):
             message = '{0} {1} ...'.format(verb[i],
                                               noun[0])
         self.update_state(state='PROGRESS',
-                          meta={'current': i*(20), 'total': total, 'solutionId':'12jkh12jkh',
+                          meta={'current': i*(20), 'total': total, 
                                 'status': message})
         result = virus_scan()
         time.sleep(1)
-    return {'current': 100, 'total': 100,'solutionId':'12jkh12jkh',  'status': 'Virus Scan completed!',
+    return {'current': 100, 'total': 100, 'status': 'Virus Scan completed!',
             'result': result}
 
 
@@ -87,12 +74,12 @@ def long_task1(self):
             message = '{0} {1} ...'.format(verb[i],
                                               noun[0])
         self.update_state(state='PROGRESS',
-                          meta={'current': i*(20), 'total': total, 'solutionId':'12jkh12jkh',
+                          meta={'current': i*(20), 'total': total,
                                 'status': message})
 
         result = 'pass'
         time.sleep(1)
-    return {'current': 100, 'total': 100,'solutionId':'12jkh12jkh',  'status': 'License scanning completed!',
+    return {'current': 100, 'total': 100,  'status': 'License scanning completed!',
             'result': result}
 
 @celery.task(bind=True)
@@ -108,12 +95,12 @@ def long_task3(self):
             message = '{0} {1} ...'.format(verb[i],
                                               noun[0])
         self.update_state(state='PROGRESS',
-                          meta={'current': i*(20), 'total': total, 'solutionId':'12jkh12jkh',
+                          meta={'current': i*(20), 'total': total,
                                 'status': message})
 
         result = 'pass'
         time.sleep(1)
-    return {'current': 100, 'total': 100,'solutionId':'12jkh12jkh',  'status': 'Keyword search completed!',
+    return {'current': 100, 'total': 100,  'status': 'Keyword search completed!',
             'result': result}
 
 @celery.task(bind=True)
@@ -129,12 +116,12 @@ def long_task4(self):
             message = '{0} {1} ...'.format(verb[i],
                                               noun[0])
         self.update_state(state='PROGRESS',
-                          meta={'current': i*(20), 'total': total, 'solutionId':'12jkh12jkh',
+                          meta={'current': i*(20), 'total': total, 
                                 'status': message})
 
         result = 'pass'
         time.sleep(1)
-    return {'current': 100, 'total': 100,'solutionId':'12jkh12jkh',  'status': 'Verify model completed!',
+    return {'current': 100, 'total': 100,  'status': 'Verify model completed!',
             'result': result}
 
 
