@@ -32,6 +32,15 @@ app.config['SECRET_KEY'] = 'top-secret!'
 
 
 
+# Celery configuration
+app.config['CELERY_BROKER_URL'] = 'redis://redis:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://redis:6379/0'
+app.config['CELERY_TASK_SERIALIZER'] = 'json'
+
+
+# Initialize Celery
+celery = Celery(app.name,serializer=app.config['CELERY_TASK_SERIALIZER'], backend=app.config['CELERY_RESULT_BACKEND'],broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
 
 
 
