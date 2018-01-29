@@ -10,21 +10,9 @@ from celery import Celery
 from flasgger import Swagger
 import requests
 import uuid
-tasks = [
-    {
-        'solutionId': 1,
-        'revisionId': '2',
-        'artifacts': "",
-        'requestToPublish': 'Organization'
-    },
-    {
-        'solutionId': 42,
-        'revisionId': '3',
-        'artifacts': "",
-        'requestToPublish': 'Public'
-    }
-]
 
+
+#Defining the web app
 app = Flask(__name__)
 swagger = Swagger(app)
 app.config['SECRET_KEY'] = 'top-secret!'
@@ -32,14 +20,21 @@ app.config['SECRET_KEY'] = 'top-secret!'
 
 
 
+# Celery configuration
+app.config['CELERY_BROKER_URL'] = 'redis://redis:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://redis:6379/0'
+app.config['CELERY_TASK_SERIALIZER'] = 'json'
 
 
+# Initialize Celery
+celery = Celery(app.name,serializer=app.config['CELERY_TASK_SERIALIZER'], backend=app.config['CELERY_RESULT_BACKEND'],broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
 
 
-
-
-
-
+# ================================================================
+# Distributed programming
+# Task definitions
+# ================================================================
 
 @celery.task(bind=True)
 def long_task(self):
@@ -53,11 +48,11 @@ def long_task(self):
             message = '{0} {1} ...'.format(verb[i],
                                               noun[0])
         self.update_state(state='PROGRESS',
-                          meta={'current': i*(20), 'total': total, 'solutionId':'12jkh12jkh',
+                          meta={'current': i*(20), 'total': total, 
                                 'status': message})
         result = virus_scan()
         time.sleep(1)
-    return {'current': 100, 'total': 100,'solutionId':'12jkh12jkh',  'status': 'Virus Scan completed!',
+    return {'current': 100, 'total': 100,  'status': 'Virus Scan completed!',
             'result': result}
 
 
@@ -78,13 +73,15 @@ def long_task1(self):
             message = '{0} {1} ...'.format(verb[i],
                                               noun[0])
         self.update_state(state='PROGRESS',
-                          meta={'current': i*(20), 'total': total, 'solutionId':'12jkh12jkh',
+                          meta={'current': i*(20), 'total': total, 
                                 'status': message})
 
         result = 'pass'
         time.sleep(1)
-    return {'current': 100, 'total': 100,'solutionId':'12jkh12jkh',  'status': 'License scanning completed!',
+    return {'current': 100, 'total': 100,  'status': 'License scanning completed!',
             'result': result}
+
+
 
 @celery.task(bind=True)
 def long_task3(self):
@@ -99,13 +96,14 @@ def long_task3(self):
             message = '{0} {1} ...'.format(verb[i],
                                               noun[0])
         self.update_state(state='PROGRESS',
-                          meta={'current': i*(20), 'total': total, 'solutionId':'12jkh12jkh',
+                          meta={'current': i*(20), 'total': total, 
                                 'status': message})
 
         result = 'pass'
         time.sleep(1)
-    return {'current': 100, 'total': 100,'solutionId':'12jkh12jkh',  'status': 'Keyword search completed!',
+    return {'current': 100, 'total': 100,  'status': 'Keyword search completed!',
             'result': result}
+
 
 @celery.task(bind=True)
 def long_task4(self):
@@ -120,34 +118,23 @@ def long_task4(self):
             message = '{0} {1} ...'.format(verb[i],
                                               noun[0])
         self.update_state(state='PROGRESS',
-                          meta={'current': i*(20), 'total': total, 'solutionId':'12jkh12jkh',
+                          meta={'current': i*(20), 'total': total, 
                                 'status': message})
 
         result = 'pass'
         time.sleep(1)
-    return {'current': 100, 'total': 100,'solutionId':'12jkh12jkh',  'status': 'Verify model completed!',
+    return {'current': 100, 'total': 100,  'status': 'Verify model completed!',
             'result': result}
 
 
-# The Virus Scan function
+# ==========================================================
 
-def virus_scan():
+# API end points
 
- #   List1.append(task1)
-   # jsonstr = json.dumps(List1)
-    os.system("bandit blog_ex.py -f json -o outputfile ")
+# ==========================================================
 
-#Scan for an outputfile
-    x = glob.glob('outputfile*')
-    #if the file exists parse the file for the results and make a decision
-    if len(x) == 1:
-        with open('outputfile') as data_file:
-            data = json.load(data_file)
 
-        if data["results"][0]["issue_severity"] in ['HIGH','MEDIUM'] and data["results"][0]['issue_confidence'] in ['HIGH','MEDIUM'] :
-            return 'Fail'
-        else:
-            return 'Pass'
+
 
 @app.route('/invoketask', methods=['GET'])
 def index():
@@ -179,7 +166,6 @@ def index():
 @app.route('/longtask', methods=['POST'])
 def longtask():
  #    task = long_task.apply_async()
- #   solutionId = '1234jik'
     if  request.json:
         solutionId=request.json['solutionId']
         return jsonify({'solutionId':solutionId}), 200, {'Location': url_for('taskstatus',task_id=solutionId)}
