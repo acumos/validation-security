@@ -15,7 +15,15 @@ swagger = Swagger(app)
 
 tasks = []
 
-data = {'status': 'Pass', 'artifactValidationStatus': [{'artifactTaskId': '4ab4fcb8-fd91-4885-be7c-163acd683ee7', 'status': 'Pass', 'artifactId': '38daf266-cd85-4bb0-a4db-5b3263defa7b'}], 'taskId': '38daf266-cd85-4bb0-a4db-5b3263defa7b'}
+data = {
+    'status': 'Pass',
+    'artifactValidationStatus': [
+        {'artifactTaskId': '4ab4fcb8-fd91-4885-be7c-163acd683ee7',
+         'status': 'Pass',
+         'artifactId': '38daf266-cd85-4bb0-a4db-5b3263defa7b'}
+    ],
+    'taskId': '38daf266-cd85-4bb0-a4db-5b3263defa7b'
+}
 
 #GET verb usage
 
@@ -27,7 +35,7 @@ data = {'status': 'Pass', 'artifactValidationStatus': [{'artifactTaskId': '4ab4f
 @app.route('/status/v1.0/tasks', methods=['GET'])
 def update_task():
     taskid = tasks[0]['task_details']['task_id']
-    base_url = ('http://localhost:9000/status',taskid)
+    base_url = ('http://root:9605/status',taskid)
     new_url =  '/'.join(base_url)
     q = requests.get(new_url)
 
@@ -58,7 +66,7 @@ def create_task():
 #    if not request.json:
 #`       abort(400)
 #    tasks = []
-    t = requests.get('http://localhost:9605/invoketask')
+    t = requests.get('http://root:9605/invoketask')
     l= t.json()
     task = {
         'solutionId': request.json['solutionId'],
@@ -68,9 +76,9 @@ def create_task():
         'task_details': l
     }
     tasks.append(task)
-    r = requests.get('http://localhost:9605/todo/api/v1.0/tasks')
+    r = requests.get('http://validation_engine:9605/todo/api/v1.0/tasks')
 # POST verb on the api
-    s = requests.post('http://localhost:9604/todo/api/v1.0/tasks',json.dumps(task),headers={"Content-type":"application/json; charset=utf8"})
+    s = requests.post('http://validation_middleware:9604/todo/api/v1.0/tasks',json.dumps(task),headers={"Content-type":"application/json; charset=utf8"})
 
 # Process Id's
     virus_id = l['task_id']
@@ -78,9 +86,9 @@ def create_task():
     textSearch_id = l['task_id2']
 
 # Creating the base URLs
-    virus_base_url = ('http://localhost:9605/status',virus_id)
-    license_base_url = ('http://localhost:9605/status',license_id)
-    textSearch_base_url = ('http://localhost:9605/status',textSearch_id)
+    virus_base_url = ('http://root:9605/status',virus_id)
+    license_base_url = ('http://root:9605/status',license_id)
+    textSearch_base_url = ('http://root:9605/status',textSearch_id)
 
 # Creating the full URLs
     virus_url =  '/'.join(virus_base_url)

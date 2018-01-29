@@ -1,6 +1,4 @@
 import gensim
-import os
-import sys
 
 
 def readfile(filename, keyword):
@@ -35,9 +33,9 @@ print(keywords)
 keywords_list = keywords.split()
 
 
-dict = ['verizon', 'AT&T']
+dict = []
 
-def keyword_search():
+def keyword_scan():
     for i in keywords_list:
         if i in dict:
             return "Fail"
