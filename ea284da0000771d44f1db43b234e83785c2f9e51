@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "194c5c50_8a3ba074",
+        "filename": "Intermediate/intermediate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is this hard-coded?",
+      "range": {
+        "startLine": 85,
+        "startChar": 18,
+        "endLine": 85,
+        "endChar": 46
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ef40b20_9f06547a",
+        "filename": "Intermediate/intermediate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is this hard-coded? should this be in a configuration file?",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 164
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8c41f6c_c6e20c03",
+        "filename": "Intermediate/intermediate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is this URL hard-coded? should this be in a configuration file? or should this endpoint be obtained dynamically?",
+      "range": {
+        "startLine": 101,
+        "startChar": 29,
+        "endLine": 101,
+        "endChar": 63
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "353de21c_b9feaf56",
+        "filename": "Intermediate/intermediate.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "So these 4 values will always be part of the keyword search even if they aren\u0027t entered into the validation keyword text box on the site admin UI?",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 51
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fcabb30_327054cf",
+        "filename": "ROOT/root.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is the solutionId hard-coded?",
+      "range": {
+        "startLine": 65,
+        "startChar": 69,
+        "endLine": 65,
+        "endChar": 90
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e860ab3_9bc5af54",
+        "filename": "ROOT/root.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is the solutionId hard-coded?",
+      "range": {
+        "startLine": 69,
+        "startChar": 42,
+        "endLine": 69,
+        "endChar": 65
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0555b90_0153279f",
+        "filename": "ROOT/root.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is the solutionId hard-coded?",
+      "range": {
+        "startLine": 90,
+        "startChar": 68,
+        "endLine": 90,
+        "endChar": 91
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e3673c7_676cd94d",
+        "filename": "ROOT/root.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is the solutionId hard-coded?",
+      "range": {
+        "startLine": 95,
+        "startChar": 42,
+        "endLine": 95,
+        "endChar": 65
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "008b7dce_546cc5af",
+        "filename": "ROOT/root.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is the solutionId hard-coded?",
+      "range": {
+        "startLine": 111,
+        "startChar": 68,
+        "endLine": 111,
+        "endChar": 91
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3eeeee3_229fc5fb",
+        "filename": "ROOT/root.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is the solutionId hard-coded?",
+      "range": {
+        "startLine": 116,
+        "startChar": 42,
+        "endLine": 116,
+        "endChar": 65
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b11fe009_be757b1e",
+        "filename": "ROOT/root.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is this solutionId hard-coded?",
+      "range": {
+        "startLine": 132,
+        "startChar": 68,
+        "endLine": 132,
+        "endChar": 91
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf743284_9fcf150b",
+        "filename": "ROOT/root.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "why is the solutionId hard-coded?",
+      "range": {
+        "startLine": 137,
+        "startChar": 42,
+        "endLine": 137,
+        "endChar": 65
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50219a21_578e3235",
+        "filename": "ROOT/root.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 1,
+      "message": "wasn\u0027t the blog_ex.py file deleted?",
+      "range": {
+        "startLine": 147,
+        "startChar": 22,
+        "endLine": 147,
+        "endChar": 32
+      },
+      "revId": "ea284da0000771d44f1db43b234e83785c2f9e51",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}

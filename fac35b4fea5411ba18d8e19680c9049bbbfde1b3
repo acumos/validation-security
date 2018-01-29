@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b36abebf_92782195",
+        "filename": "Intermediate/app8.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-29T23:04:26Z",
+      "side": 0,
+      "message": "why is this URL hard-coded? and why does it point to the Azure Cognita instance?",
+      "range": {
+        "startLine": 55,
+        "startChar": 18,
+        "endLine": 55,
+        "endChar": 63
+      },
+      "revId": "fac35b4fea5411ba18d8e19680c9049bbbfde1b3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
