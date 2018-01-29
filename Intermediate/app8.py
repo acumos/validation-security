@@ -4,17 +4,21 @@ import requests
 import json
 from flask import abort
 import uuid
+from flasgger import Swagger
+import time
 import logging
-from logging.handlers import RotatingFileHandler
 logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
+swagger = Swagger(app)
 
-# Validation task types = SS, LS, TA, OQ
+# Validation task types = SS, LC, TA, OQ
 data = {"status": 'Pass', 'artifactValidationStatus': [{'artifactTaskId': '4ab4fcb8-fd91-4885-be7c-163acd683ee7', 'validationTaskType': 'SS',  'status': 'Pass', 'artifactId': '38daf266-cd85-4bb0-a4db-5b3263defa7b'}], 'taskId': '38daf266-cd85-4bb0-a4db-5b3263defa7b','visibility':"PB", 'solutionId':'38daf266-cd85-4bb0-a4db-5b3263defa7b', 'revisionId' : '4ab4fcb8-fd91-4885-be7c-163acd683ee7'}
 
 
 tasks = []
+
+
 
 #GET verb usage
 @app.route('/todo/api/v1.0/tasks', methods=['GET'])
@@ -25,16 +29,38 @@ def get_tasks():
 @app.route('/todo/api/v1.0/tasks', methods=['POST'])
 def create_task():
 
+    """
+    This is an example
+    ---
+    tags:
+      - restful
+    parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/Task'
+    responses:
+       201:
+        description: The task has been created
+        schema:
+          $ref: '#/definitions/Task'
+    """
+
+
+
+
+
+
     if not request.json:
         abort(400)
 
     task = {
-            'solutionId': request.json["solutionId"],
+	    'solutionId': request.json["solutionId"],
             'revisionId': request.json["revisionId"],
             'visibility': request.json['visibility'],
-            'artifactValidations': request.json['artifactValidations'],
+	    'artifactValidations': request.json['artifactValidations'],
             'task_details': request.json["task_details"]
-           }
+	   }
     k = task['task_details']['task_id']
     g = task['task_details']['task_id1']
     p = task['task_details']['task_id2']
@@ -57,27 +83,61 @@ def create_task():
 
     base_url2 = ('http://acumos-portal-be:8083/validation',task['task_details']['principle_task_id'])
     new_url2 =  '/'.join(base_url2)
+
+#Defining the parsed json object
+    def json_object():
+	l = 'http://cognita-nexus01:8081/repository/repo_cognita_model_maven/com/artifact/word_embeddings_chat_ml_18102017/1.0.0/word_embeddings_chat_ml_18102017-1.0.0.json'
+    	essential1 = task['artifactValidations']
+    	for i in essential1:
+        	if i['artifactName'] == "metadata.json":
+            		l= i['url']  
+    	return l
+    json1 = requests.get(json_object())
+    text1 = json1.json()['name']
+    text2 = json1.json()['runtime']
+
+#Realtime site config
+    url_info = requests.get('http://cognita-dev1-vm01-core:8003/ccds/config/site_config',auth=('ccds_client', 'ccds_client'))
+    data1 = json.loads(url_info.json()['configValue'])['fields'][-1]['data'].encode()
+    dict1 = ['verizon', 'at&t','cognita', 'openai']
+    dict1.append(data1)
+    dict_security = ['PyYAML']
+    dict_license = ['happyml']
+
 #Keyword search
 
-    def json_object():
-        l = 'http://cognita-nexus01:8081/repository/repo_cognita_model_maven/com/artifact/word_embeddings_chat_ml_18102017/1.0.0/word_embeddings_chat_ml_18102017-1.0.0.json'
-        essential1 = task['artifactValidations']
-        for i in essential1:
-                if i['artifactName'] == "metadata.json":
-                        l= i['url']
-        return l
-    url_domain = ".eastus.cloudapp.azure.com"
-    url_full = json_object()[:22] + url_domain +  json_object()[22:]
-    json1 = requests.get(url_full)
-    text1 = json1.json()['name']
-    dict1 = ['verizon', 'at&t','cognita', 'openai']
-
     def keyword_search():
-        striptext = text1.replace('\n\n', ' ')
-        keywords_list = striptext.split()
-        keywords_list = [i.lower()for i in keywords_list]
-        for j in keywords_list:
-                if j in dict1:
+    	striptext = text1.replace('\n\n', ' ')
+    	keywords_list = striptext.split()
+    	keywords_list = [i.lower()for i in keywords_list]
+    	for j in keywords_list:           
+       		if j in dict1:
+          	   return ( "FA")
+       		else:
+          	   return ("PS")
+
+#Doing license check
+    def license_check():
+	license_list = []
+        license12 = text2['dependencies']['pip']['requirements']
+	for j in license12:
+	    license_list.append(j['name'])
+        for i in dict_license:
+	   
+                if i in license_list:
+                   return ( "FA")
+                else:
+                   return ("PS")
+
+#Doing Secuirty check
+    def security_check():
+	security_list = []
+        security12 = text2['dependencies']['pip']['requirements']
+        for j in security12:
+            security_list.append(j['name'])
+
+        for i in dict_security:
+                if i in security_list:
                    return ( "FA")
                 else:
                    return ("PS")
@@ -86,35 +146,40 @@ def create_task():
 
 
 
-    if virus_object["state"]!= "":
-        data['status']="PS"
+
+
+
+
+    time.sleep(2)
+    if virus_object["status"]!= "":
+        data['status']= security_check()
         data['taskId']=task['task_details']['principle_task_id']
         data['solutionId']=task['solutionId']
         data['revisionId']=task['revisionId']
         data['visibility']=task['visibility']
 
-        data['artifactValidationStatus'][0]['status']="PS"
+        data['artifactValidationStatus'][0]['status']=security_check()
         data['artifactValidationStatus'][0]['artifactTaskId']= k
         data['artifactValidationStatus'][0]['artifactId']= task['artifactValidations'][0]['artifactId']
         data['artifactValidationStatus'][0]['validationTaskType']= "SS"
 
         r = requests.put(new_url2,json.dumps(data),headers={"Content-type":"application/json; charset=utf8"})
-
-    if license_object["state"]!= "":
-        data['status']="PS"
+    time.sleep(3)
+    if license_object["status"]!= "":
+        data['status']= license_check()
         data['taskId']=task['task_details']['principle_task_id']
         data['solutionId']=task['solutionId']
         data['revisionId']=task['revisionId']
         data['visibility']=task['visibility']
 
-        data['artifactValidationStatus'][0]['status']="PS"
-        data['artifactValidationStatus'][0]['artifactTaskId']= g
+        data['artifactValidationStatus'][0]['status']= license_check()
+        data['artifactValidationStatus'][0]['artifactTaskId']= g 
         data['artifactValidationStatus'][0]['artifactId']= task['artifactValidations'][0]['artifactId']
         data['artifactValidationStatus'][0]['validationTaskType']= "LC"
 
         r = requests.put(new_url2,json.dumps(data),headers={"Content-type":"application/json; charset=utf8"})
 
-    if textSearch_object["state"]!= "":
+    if textSearch_object["status"]!= "":
         data['status']= keyword_search()
         data['taskId']=task['task_details']['principle_task_id']
         data['solutionId']=task['solutionId']
@@ -128,8 +193,7 @@ def create_task():
         r = requests.put(new_url2,json.dumps(data),headers={"Content-type":"application/json; charset=utf8"})
 
 
-
-    return ("done"), 201
+    return ("Done"), 201
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0",port=9604 ,debug=True)

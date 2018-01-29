@@ -1,4 +1,4 @@
-FROM python:2.7-alpine
+FROM python:2.7-stretch
 COPY .  /app
 WORKDIR /app
 RUN pip install -r requirements.txt
