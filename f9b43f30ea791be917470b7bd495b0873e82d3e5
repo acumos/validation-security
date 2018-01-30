@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a37c0bed_bf4b4fec",
+        "filename": ".env",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-30T15:10:04Z",
+      "side": 1,
+      "message": "Where is URL used in the code? I didn\u0027t see it.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 8
+      },
+      "revId": "f9b43f30ea791be917470b7bd495b0873e82d3e5",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4961f0a_3709e64e",
+        "filename": ".env",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-30T15:10:04Z",
+      "side": 1,
+      "message": "Would it be possible to give these variables descriptive names that state what the URLs are? In intermediate.py, you are assigning these variables: URL_PORTAL \u003d os.environ[\u0027url1\u0027]\nURL_CCDS \u003d os.environ[\u0027url2\u0027]\nURL_NEXUS \u003d os.environ[\u0027url3\u0027]     so how about changing the names in the .env to URL_PORTAL, URL_CCDS, URL_NEXUS ?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 9
+      },
+      "revId": "f9b43f30ea791be917470b7bd495b0873e82d3e5",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d9917c4_9b6d069b",
+        "filename": "WRAPPER/wrapper.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-30T15:10:04Z",
+      "side": 1,
+      "message": "oops - I missed this hard-coded url last time I reviewed - please change - thanks!",
+      "range": {
+        "startLine": 93,
+        "startChar": 18,
+        "endLine": 93,
+        "endChar": 52
+      },
+      "revId": "f9b43f30ea791be917470b7bd495b0873e82d3e5",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
