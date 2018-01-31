@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b68be800_30b2991c",
+        "filename": "docs/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-01-31T14:45:43Z",
+      "side": 1,
+      "message": "this is spelled incorrectly",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 19
+      },
+      "revId": "1f3a90d4eb03098d53ad4cd4734753c5ee316a36",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
