@@ -1,19 +1,20 @@
-Contributing Guidelines
-=======================
+============ 
+Contributing
+============ 
 
 Branching Model
----------------
+===============
 
-Follow the workflow described in `A successful Git branching
-model <http://nvie.com/posts/a-successful-git-branching-model/>`__.
+Follow the workflow described in
+`A successful Git branching model <http://nvie.com/posts/a-successful-git-branching-model/>`__.
 
 Versioning
-----------
+==========
 
-Use the `bumpversion <https://github.com/peritus/bumpversion>`__ tool to
-bump the ``acumos`` version. See the `bumpversion config
-file <../.bumpversion.cfg>`__ for more details. Here are some common use
-cases:
+Use the `bumpversion <https://github.com/peritus/bumpversion>`__ tool to bump
+the ``acumos`` version. See the
+`bumpversion config file <../.bumpversion.cfg>`__ for more details. Here are
+some common use cases:
 
 ::
 
@@ -23,12 +24,12 @@ cases:
     bumpversion release_version  # 0.1.0.dev1 --> 0.1.0.dev2
 
 Testing
--------
+=======
 
-We use a combination of ``tox``, ``pytest``, and ``flake8`` to test
-``acumos``. Code which is not PEP8 compliant (aside from E501) will be
-considered a failing test. You can use tools like ``autopep8`` to
-“clean” your code as follows:
+We use a combination of ``tox``, ``pytest``, and ``flake8`` to test ``acumos``.
+Code which is not PEP8 compliant (aside from E501) will be considered a
+failing test. You can use tools like ``autopep8`` to “clean” your code as
+follows:
 
 ::
 
@@ -36,9 +37,8 @@ considered a failing test. You can use tools like ``autopep8`` to
     $ cd validation-security
     $ autopep8 -r --in-place --ignore E501 acumos/ testing/ examples/
 
-To test locally, run the Jenkins test script from the repository root.
-This will fetch and install isolated Python environments using
-``pyenv``:
+To test locally, run the Jenkins test script from the repository root. This
+will fetch and install isolated Python environments using ``pyenv``:
 
 ::
 
