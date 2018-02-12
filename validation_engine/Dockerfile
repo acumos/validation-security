@@ -4,7 +4,10 @@ ENV REDIS_PORT 6379
 COPY  .  /app
 WORKDIR /app
 
+
+RUN yum install epel-release && yum update && yum install redis
 RUN pip install -r requirements.txt
 RUN sed -i 's/REDIS_HOST/'"${REDIS_HOST}"'/' /app/config.py
 RUN sed -i 's/REDIS_PORT/'"${REDIS_PORT}"'/' /app/config.py
+RUN celery -A celery_worker worker -E --loglevel=info
 CMD  ["python", "validation_engine.py"]
