@@ -6,7 +6,6 @@ Acumos Validation and Security Component Documentation
        :maxdepth: 2
     
        release-notes
-       contributing
-       architecture
+       developers-guide
        
 * :ref:`search`
