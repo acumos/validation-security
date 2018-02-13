@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d85bd738_239aa42d",
+        "filename": ".env",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-02-13T15:35:39Z",
+      "side": 1,
+      "message": "is this \u0026 going to cause a problem when the code tries to read the .env file?",
+      "range": {
+        "startLine": 5,
+        "startChar": 20,
+        "endLine": 5,
+        "endChar": 21
+      },
+      "revId": "807056a5ccbae9d4700392eeb04c2e7b35fafebe",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
