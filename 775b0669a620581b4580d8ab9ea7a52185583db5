@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de25e133_58ca5c16",
+        "filename": ".env",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-02-13T20:03:27Z",
+      "side": 1,
+      "message": "please update this with an acumos URL",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 69
+      },
+      "revId": "775b0669a620581b4580d8ab9ea7a52185583db5",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fd8dbce_f0ef065e",
+        "filename": ".env",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-02-13T20:03:27Z",
+      "side": 1,
+      "message": "please update this with an acumos URL",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 65
+      },
+      "revId": "775b0669a620581b4580d8ab9ea7a52185583db5",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4b3f876_193efbc0",
+        "filename": "validation_engine/celery_worker.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 94
+      },
+      "writtenOn": "2018-02-13T20:03:27Z",
+      "side": 1,
+      "message": "This is causing the KeyError  \nFile \"/app/celery_worker.py\", line 27, in \u003cmodule\u003e\n    celery \u003d Celery(os.environ[\u0027APP_NAME\u0027])\n  File \"/usr/local/lib/python2.7/UserDict.py\", line 40, in __getitem__\n    raise KeyError(key)\n\nMaybe try: appName \u003d os.environ[\u0027APP_NAME\u0027]\ncelery \u003d Celery(appName)",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 39
+      },
+      "revId": "775b0669a620581b4580d8ab9ea7a52185583db5",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
