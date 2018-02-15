@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6802245e_8450ebf6",
+        "filename": ".env",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-02-15T18:14:02Z",
+      "side": 1,
+      "message": "This still has a Cognita URL.  It should not.",
+      "revId": "07cf0804995d4334bce24cd0f68cbe6b5faf1f05",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
