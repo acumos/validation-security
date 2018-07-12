@@ -1,5 +1,5 @@
 .. ===============LICENSE_START=======================================================
-.. Acumos
+.. Acumos CC-BY 4.0
 .. ===================================================================================
 .. Copyright (C) 2017-2018 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
 .. ===================================================================================
@@ -15,15 +15,13 @@
 .. See the License for the specific language governing permissions and
 .. limitations under the License.
 .. ===============LICENSE_END=========================================================
-===================
-Validation Security
-===================
+=====================
+Security Verification
+=====================
 
 .. toctree::
        :maxdepth: 2
 
-       release-notes
-       developer-guide
-       user-guide
+       security-verification
 
 * :ref:`search`
